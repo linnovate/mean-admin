@@ -1,0 +1,6 @@
+.travis.yml
+.gitignore
+dist
+src
+test
+Makefile

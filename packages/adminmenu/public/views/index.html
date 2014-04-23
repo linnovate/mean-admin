@@ -1,0 +1,29 @@
+<div class="admin-menu" data-ng-controller="AdminmenuController">
+    <section class="container">
+        <div id="wrapper" class="row-fluid">
+            <div class="col-md-2">
+                <nav class="nav-docs" role="complementary">
+                    <div class="span3 " style="width: auto;">
+                        <ul class="nav">
+                            <li data-ng-repeat="item in menus.admin" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
+                                <a mean-token="item.title" ui-sref='{{item.link}}'>{{item.title}}</a>
+                                <!--  <ul class="nav">
+                                    <li class=""><a href="#getting-started-overview" prevent-default="" data-title="Overview">Overview</a>
+                                    </li>
+                                    <li class=""><a href="#getting-started-installation" prevent-default="" data-title="Installation" ng-click="changeView()">Installation</a>
+                                    </li>
+                                    <li class="" data-title="Prerequisites"><a href="#getting-started-prereq" prevent-default="">Prerequisites</a>
+                                    </li>
+                                    <li class=""><a href="#getting-started-technologies" prevent-default="" data-title="Technologies">Technologies</a>
+                                    </li>
+                                </ul> -->
+                            </li>
+                        </ul>
+                    </div>
+
+                </nav>
+            </div>
+        </div>
+</div>
+</section>
+</div>

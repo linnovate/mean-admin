@@ -1,0 +1,23 @@
+<div>
+	<div class="border" data-ng-init="global.meanTokenEditableMode=false" 
+	data-ng-click="global.meanTokenEditableMode=!global.meanTokenEditableMode">
+		<button data-ng-show="!global.meanTokenEditableMode" class="border btn btn-info pull-left">OFF</button>
+		<button data-ng-show="global.meanTokenEditableMode" class="border btn btn-success pull-right">ON</button>
+	</div>
+	<style type="text/css">
+		[mean-token-editable] {
+			border: solid 1px black;
+			width: 70px;
+			border-radius: 8px;
+			display: inline-block;
+		}
+		[mean-token-editable] .btn {
+			padding: 2px 5px;
+			font-size: 12px;
+			border-radius: 8px;
+		}
+		[mean-token-editable] .border {
+			height: 23px;
+		}
+	</style>
+</div>
