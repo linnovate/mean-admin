@@ -5,7 +5,7 @@
 
 var Module = require("meanio").Module;
 
-var Admin = new Module("Admin");
+var Admin = new Module("mean-admin");
 var assetmanager = require('assetmanager');
 
 /*
