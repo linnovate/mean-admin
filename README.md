@@ -1,1 +1,1 @@
-mean-admin
+README: admin

@@ -1,8 +1,3 @@
-{% extends 'layouts/default.html' %}
-{% block content %}
-    <section data-ui-view />
-    <script type="text/javascript">
-        window.user = {{user|safe}};        
-        window.modules = {{modules|safe}};      
-    </script>
-{% endblock %}
+<h1>This is rendered from the package itself.</h1>
+<h2>The modules using swig by default</h2>
+<img href="http://mean.io" src="/{{package}}/assets/img/logo.png"/>
