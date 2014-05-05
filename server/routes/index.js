@@ -17,4 +17,9 @@ module.exports = function(Admin, app, auth, database) {
     app.get('/admin/themes', auth.requiresAdmin, function(req, res) {
         themes.save(req, res, gfs)
     });
+
+    app.get('/admin/themes/defaultTheme', auth.requiresAdmin, function(req, res) {
+        themes.defaultTheme(req, res, gfs)
+    });
+    
 };

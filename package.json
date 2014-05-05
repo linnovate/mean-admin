@@ -15,5 +15,9 @@
     "request": "2.34.0"
   },
   "license": "MIT",
-  "readme": "README: admin"
+  "readme": "README: admin",
+  "_id": "mean-admin@0.0.2",
+  "_shasum": "b4ad3bebf83abb51575cf15aaf238251d50e765b",
+  "_from": "https://github.com/linnovate/mean-admin/tarball/master",
+  "_resolved": "https://github.com/linnovate/mean-admin/tarball/master"
 }
