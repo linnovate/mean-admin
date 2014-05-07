@@ -1,10 +1,8 @@
 {
   "name": "mean-admin",
-  "version": "0.0.2",
-  "description": "Some description of admin",
-  "author": {
-    "name": "mean scaffold"
-  },
+  "version": "0.0.3",
+  "description": "Admin module for MEAN applications",
+  "author": "Linnovate <mean@linnovate.net>",
   "mean": true,
   "engines": {
     "node": "0.10.x",
@@ -15,7 +13,6 @@
     "request": "2.34.0"
   },
   "license": "MIT",
-  "readme": "README: admin",
   "_id": "mean-admin@0.0.2",
   "_shasum": "b4ad3bebf83abb51575cf15aaf238251d50e765b",
   "_from": "https://github.com/linnovate/mean-admin/tarball/master",
