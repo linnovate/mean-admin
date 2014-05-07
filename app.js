@@ -1,12 +1,10 @@
 'use strict';
+
 /*
  * Defining the Package
  */
-
-var Module = require("meanio").Module;
-
-var Admin = new Module("mean-admin");
-var assetmanager = require('assetmanager');
+var Module = require('meanio').Module;
+var Admin = new Module('mean-admin');
 
 /*
  * All MEAN packages require registration
@@ -21,9 +19,7 @@ Admin.register(function(app, auth, database) {
     Admin.aggregateAsset('js', 'themes.js');
     Admin.aggregateAsset('js', 'modules.js');
 
-
-
-    //We enable routing. By default the Package Object is passed to the routes
+    // We enable routing. By default the Package Object is passed to the routes
     Admin.routes(app, auth, database);
     return Admin;
 });

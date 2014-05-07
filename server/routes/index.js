@@ -1,9 +1,9 @@
 'use strict';
-var Grid = require('gridfs-stream');        
+var Grid = require('gridfs-stream');
 
 // The Package is past automatically as first parameter
 module.exports = function(Admin, app, auth, database) {
-    var gfs = Grid(database.connection.connections[0].db, database.connection.mongo);
+    var gfs = new Grid(database.connection.connections[0].db, database.connection.mongo);
 
     //Setting up the users api
     var users = require('../controllers/users');
@@ -15,11 +15,11 @@ module.exports = function(Admin, app, auth, database) {
     //Setting up the users api
     var themes = require('../controllers/themes');
     app.get('/admin/themes', auth.requiresAdmin, function(req, res) {
-        themes.save(req, res, gfs)
+        themes.save(req, res, gfs);
     });
 
     app.get('/admin/themes/defaultTheme', auth.requiresAdmin, function(req, res) {
-        themes.defaultTheme(req, res, gfs)
+        themes.defaultTheme(req, res, gfs);
     });
-    
+
 };

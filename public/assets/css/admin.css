@@ -1,23 +1,20 @@
 .adminmenu_example h1: {
-    background-color:purple
+    background-color: purple
 }
-
-.admin-menu .col-md-2{
-background-color:#176583;
-padding-right:0;
-padding-left:0;
-height:1000px;
-margin-right:20px;
+.admin-menu .col-md-2 {
+    background-color: #176583;
+    padding-right: 0;
+    padding-left: 0;
+    height: 1000px;
+    margin-right: 20px;
 }
-
-.content{
-  margin-top:51px !important;
+.content {
+    margin-top: 51px !important;
 }
-
-.admin-menu .col-md-2 ul li a{
-  color:#74c0da;
+.admin-menu .col-md-2 ul li a {
+    color: #74c0da;
 }
-.admin-menu .col-md-2 ul li a:hover{
-  background-color:#103c4d;
-  padding: 10px 15px;
+.admin-menu .col-md-2 ul li a:hover {
+    background-color: #103c4d;
+    padding: 10px 15px;
 }

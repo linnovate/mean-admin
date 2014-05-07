@@ -47,7 +47,7 @@ angular.module('mean').controller('AdminController', ['$scope', 'Global', 'Menus
             queryMenu('admin', defaultAdminMenu);
 
             $scope.global = {
-                authenticated: !! $rootScope.user,
+                authenticated: !!$rootScope.user,
                 user: $rootScope.user
             };
         });

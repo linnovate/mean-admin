@@ -59,12 +59,12 @@ angular.module('mean').controller('UsersController', ['$scope', 'Global', 'Menus
                 $scope.users.push(response);
             });
 
-            this.firstName = this.lastName = this.email = this.password = this.role = "";
+            this.firstName = this.lastName = this.email = this.password = this.role = '';
         };
 
         $scope.remove = function(user) {
             for (var i in $scope.users) {
-                if ($scope.users[i] == user) {
+                if ($scope.users[i] === user) {
                     $scope.users.splice(i, 1);
                 }
             }

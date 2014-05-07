@@ -19,9 +19,9 @@ angular.module('mean').controller('ThemesController', ['$scope', 'Global', '$roo
         };
 
         $scope.changeTheme = function(theme) {
-           // Will add preview options soon
-           // $('link').attr('href', theme.css);
-           // $scope.selectedTheme = theme;
+            // Will add preview options soon
+            // $('link').attr('href', theme.css);
+            // $scope.selectedTheme = theme;
             $('.progress-striped').show();
 
             $http.get('/admin/themes?theme=' + theme.css).
