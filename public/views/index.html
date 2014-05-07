@@ -1,12 +1,16 @@
 <div class="admin-menu" data-ng-controller="AdminController">
     <div id="wrapper" class="row-fluid">
-        <div data-ng-class="{'col-md-2': openMenu , 'col-md-1' : !openMenu}">
+        <div data-ng-class="{'col-md-2': openMenu , 'col-md-1' : !openMenu}" data-ng-mouseenter="openMenu=true" data-ng-mouseleave="openMenu=false">
             <nav class="nav-docs" role="complementary">
                 <div class="span3 " style="width: auto;">
                     <ul class="nav">
-                        <li data-ng-repeat="item in menus.admin" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}" data-ng-mouseover="wideMenu()">
-                            <a ui-sref='{{item.link}}'><img src="mean-admin/assets/img/icons/{{item.icon}}" alt=""></a>
-                            <span data-ng-show="openMenu" mean-token="item.title">{{item.title}}</span>
+                        <li data-ng-repeat="item in menus.admin" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
+                            <div>
+                               <a ui-sref='{{item.link}}'>
+                                    <img src="mean-admin/assets/img/icons/{{item.icon}}" alt="">
+                                </a>
+                                <span data-ng-show="openMenu" mean-token="item.title">{{item.title}}</span>
+                            </div>
                         </li>
                     </ul>
                 </div>

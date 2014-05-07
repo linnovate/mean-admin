@@ -4,29 +4,28 @@ angular.module('mean').controller('AdminController', ['$scope', 'Global', 'Menus
     function($scope, Global, Menus, $rootScope) {
         $scope.global = Global;
         $scope.menus = {};
-        $scope.overIcon = false;
 
         // Default hard coded menu items for main menu
         var defaultAdminMenu = [{
             'roles': ['admin'],
             'title': 'MODULES',
             'link': 'modules',
-            'icon' : 'modules.jpg'
+            'icon' : 'modules.png'
         }, {
             'roles': ['admin'],
             'title': 'THEMES',
             'link': 'themes',
-            'icon': 'themes.jpg'
+            'icon': 'themes.png'
         }, {
             'roles': ['admin'],
             'title': 'SETTINGS',
             'link': 'settings',
-            'icon' : 'settings.jpg'
+            'icon' : 'settings.png'
         }, {
             'roles': ['admin'],
             'title': 'USERS',
             'link': 'users',
-            'icon' : 'users.jpg'
+            'icon' : 'users.png'
         }];
 
         // Query menus added by modules. Only returns menus that user is allowed to see.
@@ -55,10 +54,5 @@ angular.module('mean').controller('AdminController', ['$scope', 'Global', 'Menus
                 user: $rootScope.user
             };
         });
-
-        $scope.wideMenu = function() {
-            $scope.openMenu = true;
-        };
-
     }
 ]);
