@@ -1,6 +1,6 @@
-<section data-ng-controller="ModulesController">
+<section data-ng-controller="ModulesController" data-ng-init="isOpen=true">
     <accordion close-others="oneAtATime">
-        <accordion-group data-ng-repeat="module in modules" heading="{{module}}" is-open="true">
+        <accordion-group data-ng-repeat="module in modules" heading="{{module}}" is-open="isOpen">
             This content is straight in the template.
         </accordion-group>
     </accordion>
