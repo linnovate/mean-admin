@@ -22,6 +22,7 @@ angular.module('mean').controller('UsersController', ['$scope', 'Global', 'Menus
             title: 'Roles',
             schemaKey: 'roles',
             type: 'select',
+            options: ['authenticated', 'admin'],
             inTable: true
         }, {
             title: 'Password',
@@ -34,7 +35,6 @@ angular.module('mean').controller('UsersController', ['$scope', 'Global', 'Menus
             type: 'password',
             inTable: false
         }];
-        $scope.roles = ['authenticated', 'admin'];
         $scope.user = {};
 
         $scope.init = function() {
@@ -72,9 +72,21 @@ angular.module('mean').controller('UsersController', ['$scope', 'Global', 'Menus
             user.$remove();
         };
 
-        $scope.update = function(user) {
-            user.$update();
+        $scope.update = function(user, userField) {
+            if (userField && userField === 'roles' && user.roles.indexOf('admin') === -1) {
+                if (confirm('Are you sure you want to remove "admin" role?')) {
+                    user.$update();
+                } else {
+                    user.roles = user.tmpRoles;
+                }
+            } else
+                user.$update();
         };
 
+        $scope.beforeSelect = function(userField, user) {
+            if (userField === 'roles') {
+                user.tmpRoles = user.roles;
+            }
+        };
     }
 ]);

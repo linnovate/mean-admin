@@ -4,6 +4,7 @@ angular.module('mean').controller('AdminController', ['$scope', 'Global', 'Menus
     function($scope, Global, Menus, $rootScope) {
         $scope.global = Global;
         $scope.menus = {};
+        $scope.overIcon = false;
 
         // Default hard coded menu items for main menu
         var defaultAdminMenu = [{

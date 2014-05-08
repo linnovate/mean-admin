@@ -3,7 +3,7 @@
         <div class="">
             <span data-ng-repeat="field in userSchema">
                 <input data-ng-if="(field['type'] == 'text' || field['type'] == 'password')" type="{{field['type']}}" class="span2" data-ng-model="user[field['schemaKey']]" placeholder="{{field['title']}}" id="user-add-title" />
-                <select data-ng-if="field['type'] == 'select'" data-ng-model="user[field['schemaKey']]" ng-multiple="true" multiple ng-options="role for role in roles">
+                <select data-ng-if="field['type'] == 'select'" data-ng-model="user[field['schemaKey']]" ng-multiple="true" multiple ng-options="option for option in field['options']">
                     <option value="">-- Choose Role --</option>
                 </select>
             </span>
@@ -30,7 +30,7 @@
             </td>
             <td class="table-editable-cell" data-ng-repeat="field in userSchema" data-ng-if="field.inTable">
                 <span data-ng-if="(field['type'] == 'text')" class="editable-span" data-ng-editable="update(user)" data-ng-editable-model="user[field['schemaKey']]"></span>
-                <span data-ng-if="(field['type'] == 'select')" class="editable-span" data-ng-editable-select="update(user)" data-ng-editable-select-model="user[field['schemaKey']]" data-ng-editable-select-options="roles" data-ng-editable-select-text="getRoleName(user)">
+                <span data-ng-click="beforeSelect(field['schemaKey'], user)" data-ng-if="(field['type'] == 'select')" class="editable-span" data-ng-editable-select="update(user, field['schemaKey'])" data-ng-editable-select-model="user[field['schemaKey']]" data-ng-editable-select-options="field['options']">
                 </span>
             </td>
     </table>
