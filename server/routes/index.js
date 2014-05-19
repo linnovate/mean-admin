@@ -18,6 +18,14 @@ module.exports = function(Admin, app, auth, database) {
         themes.save(req, res, gfs);
     });
 
+    var mean = require('meanio');
+    app.get('/admin/modules', auth.requiresAdmin, function(req, res) {
+        var modules = {};
+        for (var name in mean.modules)
+            modules[name] = mean.modules[name];
+        res.jsonp(modules);
+    });
+
     app.get('/admin/themes/defaultTheme', auth.requiresAdmin, function(req, res) {
         themes.defaultTheme(req, res, gfs);
     });
