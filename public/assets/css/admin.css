@@ -5,7 +5,7 @@
     top: 51px;
     width: 60px;
 }
-.admin-menu #stable:hover .showbox {
+.admin-menu #stable:hover .showbox, .admin-menu #stable .showbox.wide {
     width: 190px;
     font-size: inherit;
     background-color: #103c4d;
@@ -13,6 +13,9 @@
 }
 .admin-menu #stable:hover {
     background-color: #103c4d;
+}
+.admin-menu #stable .showbox.wide {
+    background-color: #176583;
 }
 .admin-menu #stable a {
     border-bottom: solid 1px #217D99;
@@ -33,4 +36,29 @@
     font-size: 0;
     color: #89D7F3;
     cursor: pointer;
+}
+.admin-menu .hover-ninja {
+    width: 60px;
+    height: 100%;
+}
+.admin-menu .hover-ninja:hover+.ninja {
+    position:absolute;
+    width: 287px;
+    -webkit-transform:rotate(360deg);
+    -moz-transform:rotate(360deg);
+    -o-transform:rotate(360deg);
+    -ms-transform:rotate(360deg);
+    transform:rotate(360deg);
+}
+.admin-menu .ninja {
+    width: 0;
+    height: 305px;
+    background: url(../mean-admin/assets/img/ninja/ninja.png) no-repeat;
+    position: absolute;
+    bottom: 60px;
+    left: 0px;
+    -webkit-transition:0.5s all ease-in-out;
+    -moz-transition:0.5s all ease-in-out;
+    -o-transition:0.5s all ease-in-out;
+    transition:0.5s all ease-in-out
 }
