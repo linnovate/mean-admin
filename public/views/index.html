@@ -2,7 +2,8 @@
     <ul class="nav">
         <li id="stable" data-ng-repeat="item in menus.admin" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}" ui-sref='{{item.link}}'>
             <a href="">
-                <img src="mean-admin/assets/img/icons/{{item.icon}}">
+				<img data-ng-show="item.icon" src="{{item.icon}}">  
+                <img data-ng-show="!item.icon" src="mean-admin/assets/img/icons/settings.png">
             </a>
             <div class="showbox" mean-token="item.title">{{item.title}}</div>
         </li>

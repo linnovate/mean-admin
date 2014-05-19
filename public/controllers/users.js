@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mean').controller('UsersController', ['$scope', 'Global', 'Menus', '$rootScope', '$http', 'Users',
+angular.module('mean.mean-admin').controller('UsersController', ['$scope', 'Global', 'Menus', '$rootScope', '$http', 'Users',
     function($scope, Global, Menus, $rootScope, $http, Users) {
         $scope.global = Global;
         $scope.userSchema = [{

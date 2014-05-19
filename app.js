@@ -18,6 +18,17 @@ Admin.register(function(app, auth, database) {
     Admin.aggregateAsset('js', 'users.js');
     Admin.aggregateAsset('js', 'themes.js');
     Admin.aggregateAsset('js', 'modules.js');
+    Admin.aggregateAsset('js', 'ng-clip.js');
+    Admin.aggregateAsset('js', 'settings.js');
+    Admin.aggregateAsset('js', '/node_modules/mean-admin/public/assets/lib/ng-clip/src/ngClip.js', {
+        absolute: true
+    });
+
+    Admin.aggregateAsset('js', '/node_modules/mean-admin/public/assets/lib/zeroclipboard/ZeroClipboard.min.js', {
+        absolute: true
+    });
+
+    Admin.angularDependencies(['ngClipboard']);
 
     // We enable routing. By default the Package Object is passed to the routes
     Admin.routes(app, auth, database);

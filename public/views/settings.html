@@ -1,1 +1,32 @@
-<h1>SETTINGS</h1>
+<section data-ng-controller="SettingsController" data-ng-init="init()">
+    <div class="actions-bar" data-ng-show="settings">
+        <input type="button" class="btn btn-danger" data-ng-hide="edit" data-ng-click="edit=!edit" value="Edit">
+        <input type="button" class="btn btn-primary" data-ng-show="edit" data-ng-click="edit=!edit" value="Done">
+    </div>
+    <table class="table table-striped table-bordered table-hover editable-table" data-ng-show="settings">
+        <tr>
+            <th data-ng-show="edit">
+                Default
+            </th>
+            <th>Name</th>
+            <th>Value</th>
+            <th>Default</th>
+        </tr>
+        <tr data-ng-repeat="(key, value) in settings">
+            <td data-ng-show="edit">
+                <button class="glyphicon glyphicon-trash" data-ng-click="value.value=value.default">set default</button>
+            </td>
+            <td>
+                {{key}}
+            </td>
+            <td>
+                <span data-ng-editable="update(settings)" class="editable-span" data-ng-editable-model="value.value"></span>
+                <span data-ng-show="value.hardCoded" style="cursor: help;" tooltip-placement="top" tooltip="On the Top!" class="label label-info">Overridden</span>
+            </td>
+            <td>
+                {{value.default}}
+            </td>
+        </tr>
+    </table>
+    <button clip-copy="getTextToCopy()" clip-click="doSomething()">Copy json</button>
+</section>
