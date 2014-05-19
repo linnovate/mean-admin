@@ -16,6 +16,7 @@
 }
 .admin-menu #stable .showbox.wide {
     background-color: #176583;
+    border-bottom: solid 1px #217D99;
 }
 .admin-menu #stable a {
     border-bottom: solid 1px #217D99;
@@ -40,15 +41,18 @@
 .admin-menu .hover-ninja {
     width: 60px;
     height: 100%;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    -ms-transition-duration: 0.5s;
+}
+.admin-menu .hover-ninja:hover {
+    width: 250px;
+    background-color: #176583;
 }
 .admin-menu .hover-ninja:hover+.ninja {
     position:absolute;
     width: 287px;
-    -webkit-transform:rotate(360deg);
-    -moz-transform:rotate(360deg);
-    -o-transform:rotate(360deg);
-    -ms-transform:rotate(360deg);
-    transform:rotate(360deg);
 }
 .admin-menu .ninja {
     width: 0;
@@ -57,11 +61,8 @@
     position: absolute;
     bottom: 60px;
     left: 0px;
-    -webkit-transition:0.5s all ease-in-out;
-    -moz-transition:0.5s all ease-in-out;
-    -o-transition:0.5s all ease-in-out;
-    transition:0.5s all ease-in-out;
-}
-.admin-modules .panel-default > .panel-heading {
-    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    -ms-transition-duration: 0.5s;
 }
