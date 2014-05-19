@@ -20,8 +20,8 @@ module.exports = function(Admin, app, auth, database) {
 
     var mean = require('meanio');
     app.get('/admin/modules', auth.requiresAdmin, function(req, res) {
-        var modules = {}
-        for (var name in mean.modules)           
+        var modules = {};
+        for (var name in mean.modules)
             modules[name] = mean.modules[name];
         res.jsonp(modules);
     });

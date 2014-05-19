@@ -1,8 +1,8 @@
-<section data-ng-controller="ModulesController" data-ng-init="isOpen=true">
+<section data-ng-controller="ModulesController" data-ng-init="isOpen=true" class="admin-modules">
     <accordion close-others="oneAtATime">
         <accordion-group data-ng-repeat="(module, info) in modules" heading="{{module}}" is-open="isOpen">
             <div data-ng-repeat="(key, value) in info">
-            	{{key}} : {{value}}
+                {{key}} : {{value}}
             </div>
         </accordion-group>
     </accordion>
