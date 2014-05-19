@@ -66,3 +66,6 @@
     -o-transition-duration: 0.5s;
     -ms-transition-duration: 0.5s;
 }
+.admin-modules .panel-default > .panel-heading {
+    cursor: pointer;
+}
