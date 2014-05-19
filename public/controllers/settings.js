@@ -3,9 +3,12 @@ angular.module('mean.mean-admin').controller('SettingsController', ['$scope', 'G
     function($scope, Global, Settings) {
 
         $scope.init = function() {
-            Settings.get(function(settings) {
-                console.log(settings);
-                $scope.settings = JSON.flatten(settings);
+            Settings.get(function(data) {
+                if (data.success) {
+                    $scope.settings = JSON.flatten(data.settings);
+                } else {
+                    alert('error');
+                }
             });
         };
 

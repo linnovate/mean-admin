@@ -18,48 +18,18 @@ module.exports = function(Admin, app, auth, database) {
     app.get('/admin/themes', auth.requiresAdmin, function(req, res) {
         themes.save(req, res, gfs);
     });
-
     app.get('/admin/themes/defaultTheme', auth.requiresAdmin, function(req, res) {
         themes.defaultTheme(req, res, gfs);
     });
 
-    app.get('/admin/settings', auth.requiresAdmin, function(req, res) {
-        //res.jsonp(mean.config());
-        res.jsonp({
-            app: {
-                name: {
-                    default: 'MEAN - FullStack JS - Development',
-                    value: 'Ccdsfsdf',
-                    hardCoded: true
-                }
-            },
-            facebook: {
-                clientID: {
-                    default: 'APP_ID',
-                    value: 'asdfasdf',
-                    hardCoded: false
-                },
-                clientSecret: {
-                    default: 'APP_SECRET',
-                    value: 'asdfasdf',
-                    hardCoded: false
-                },
-                callbackURL: {
-                    default: 'http://localhost:3000/auth/facebook/callback',
-                    value: 'asdfasdf',
-                    hardCoded: false
-                }
-            },
-            favicon: {
-                default: '/public/system/assets/img/favicon.ico',
-                value: '/public/system/assets/img/favicon.ico',
-                hardCoded: true
-            }
-
-        });
+    app.get('/admin/modules', auth.requiresAdmin, function(req, res) {
+        var modules = {};
+        for (var name in mean.modules)
+            modules[name] = mean.modules[name];
+        res.jsonp(modules);
     });
 
-    app.put('/admin/settings', auth.requiresAdmin, function(req, res) {
-        res.jsonp(req.body);
-    });
+    var settings = require('../controllers/settings');
+    app.get('/admin/settings', auth.requiresAdmin, settings.get);
+    app.put('/admin/settings', auth.requiresAdmin, settings.save);
 };

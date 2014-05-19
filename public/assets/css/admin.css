@@ -34,3 +34,6 @@
     color: #89D7F3;
     cursor: pointer;
 }
+.admin-modules .panel-default > .panel-heading {
+    cursor: pointer;
+}
