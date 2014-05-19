@@ -22,6 +22,10 @@ module.exports = function(Admin, app, auth, database) {
         themes.defaultTheme(req, res, gfs);
     });
 
+    app.get('/admin/themes/defaultTheme', auth.requiresAdmin, function(req, res) {
+        themes.defaultTheme(req, res, gfs);
+    });
+
     app.get('/admin/modules', auth.requiresAdmin, function(req, res) {
         var modules = {};
         for (var name in mean.modules)
