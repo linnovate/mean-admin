@@ -20,7 +20,8 @@ angular.module('mean.mean-admin').controller('SettingsController', ['$scope', 'G
         };
 
         $scope.getTextToCopy = function() {
-            return 'hello';
+            var settings = JSON.unflatten($scope.settings);
+            return JSON.stringify(settings);
         };
 
         JSON.flatten = function(data) {
