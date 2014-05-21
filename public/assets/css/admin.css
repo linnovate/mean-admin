@@ -20,6 +20,7 @@
     color: #89D7F3;
     cursor: pointer;
     background-color: #176583;
+    border-bottom: solid 1px #217D99;
 }
 
 .admin-menu #stable:hover .showbox, .admin-menu #stable .showbox.wide {
@@ -33,7 +34,6 @@
 }
 .admin-menu #stable .showbox.wide {
     background-color: #176583;
-    border-bottom: solid 1px #217D99;
 }
 .admin-menu #stable a {
     border-bottom: solid 1px #217D99;
