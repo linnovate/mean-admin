@@ -30,6 +30,16 @@ Admin.register(function(app, auth, database) {
 
     Admin.angularDependencies(['ngClipboard']);
 
+    Admin.settings({
+        salta: {
+            type: 'checkbox',
+            options: {
+                title: 'ninja - salta '
+            },
+            value: false
+        }
+    });
+
     // We enable routing. By default the Package Object is passed to the routes
     Admin.routes(app, auth, database);
     return Admin;

@@ -1,8 +1,8 @@
-<div class="admin-menu" data-ng-controller="AdminController">
+<div class="admin-menu" data-ng-controller="AdminController" data-ng-init="init()">
     <ul class="nav">
         <li id="stable" data-ng-repeat="item in menus.admin" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}" ui-sref='{{item.link}}'>
             <a href="">
-				<img data-ng-show="item.icon" src="{{item.icon}}">  
+				<img data-ng-show="item.icon" data-ng-src="{{item.icon}}">
                 <img data-ng-show="!item.icon" src="mean-admin/assets/img/icons/settings.png">
             </a>
             <div class="showbox" mean-token="item.title">{{item.title}}</div>

@@ -1,0 +1,7 @@
+<div>
+    <input type="{{type}}" data-ng-if="(type == 'text' || type == 'number' || type == 'date' || type == 'password')" data-ng-model="value" />
+    <select data-ng-if="type == 'select'" data-ng-model="value" data-ng-multiple="true" multiple data-ng-options="option for option in options">
+        <option value="">Choose Option</option>
+    </select>
+    <div data-ng-if="type == 'checkbox'"><span>{{options.title}}</span><input type="checkbox" data-ng-model="value"></div>
+</div>

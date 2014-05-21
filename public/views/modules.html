@@ -1,9 +1,23 @@
 <section data-ng-controller="ModulesController" data-ng-init="isOpen=true" class="admin-modules">
     <accordion close-others="oneAtATime">
         <accordion-group data-ng-repeat="(module, info) in modules" heading="{{module}}" is-open="isOpen">
-            <div data-ng-repeat="(key, value) in info">
+            <div data-ng-repeat="(key, value) in info" data-ng-if="key !== 'settings'">
                 {{key}} : {{value}}
             </div>
+            <accordion close-others="oneAtATime">
+                <accordion-group heading="settings" is-open="isOpen">
+                    <div data-ng-repeat="(key, value) in info.settings">
+                        <!--  <span class="glyphicon glyphicon-trash" data-ng-click="remove(module, key)" value="del">
+                            <i class="icon-trash icon-white"></i>
+                        </span> -->
+                        <!--     <span class="editable-span" data-ng-editable="update()" data-ng-editable-model="key"></span>:
+                        <span class="editable-span" data-ng-editable="update()" data-ng-editable-model="value"></span> -->
+                        <span>{{key}} : </span>
+                        <setting data-ng-set-type="value.type" data-ng-set-options="value.options" data-ng-set-value="value.value"></setting>
+                    </div>
+                    <button data-ng-click="info.settings['new']='new'">Add</button>
+                </accordion-group>
+            </accordion>
         </accordion-group>
     </accordion>
 </section>

@@ -1,10 +1,9 @@
 'use strict';
 
-angular.module('mean.mean-admin').controller('AdminController', ['$scope', 'Global', 'Menus', '$rootScope',
-    function($scope, Global, Menus, $rootScope) {
+angular.module('mean.mean-admin').controller('AdminController', ['$scope', 'Global', 'Menus', '$rootScope', '$http',
+    function($scope, Global, Menus, $rootScope, $http) {
         $scope.global = Global;
         $scope.menus = {};
-        $scope.overIcon = false;
 
         // Default hard coded menu items for main menu
         var defaultAdminMenu = [{
@@ -28,6 +27,13 @@ angular.module('mean.mean-admin').controller('AdminController', ['$scope', 'Glob
             'link': 'users',
             'icon': 'mean-admin/assets/img/icons/users.png'
         }];
+
+
+        $scope.init = function() {
+            $http.get('admin/moduleSettings').success(function(data) {
+                console.log(data);
+            });
+        };
 
         // Query menus added by modules. Only returns menus that user is allowed to see.
 
