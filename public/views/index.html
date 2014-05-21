@@ -5,9 +5,9 @@
                 <img data-ng-show="item.icon" ng-src="{{item.icon}}">
                 <img data-ng-show="!item.icon" src="mean-admin/assets/img/icons/settings.png">
             </a>
-            <div class="showbox" data-ng-class="{'wide': hover}" mean-token="item.title">{{item.title}}</div>
+            <div class="showbox" data-ng-class="{'wide': openWide}" mean-token="item.title">{{item.title}}</div>
         </li>
     </ul>
-    <div data-ng-init="hover=false" class="hover-ninja" data-ng-mouseover="hover=true" data-ng-mouseleave="hover=false"></div>
+    <div data-ng-init="openWide=false" class="hover-ninja" data-ng-class="{'wide':openWide}" data-ng-click="openWide=!openWide"></div>
     <div class="ninja"></div>
 </div>
