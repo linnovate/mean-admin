@@ -17,14 +17,9 @@ angular.module('mean.mean-admin').directive('ngEditable', function() {
         },
         replace: true,
         link: function(scope, element, attrs) {
-            // scope.$watch('model', function() {
-            //     console.log('hhhhh');
-            // });
             scope.focus = function() {
-                console.log(element.find("input"));
                 element.find("input").focus();
             };
-
             scope.$watch('edit', function(isEditable) {
                 if (isEditable === false) {
                     scope.update();

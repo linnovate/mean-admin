@@ -37,3 +37,10 @@
 .admin-modules .panel-default > .panel-heading {
     cursor: pointer;
 }
+tr.disabled {
+    pointer-events: none;
+    opacity: 0.4;
+}
+span.editable-wrapper input {
+    width: 80%;
+}

@@ -2,10 +2,17 @@
 angular.module('mean.mean-admin').controller('SettingsController', ['$scope', 'Global', 'Settings',
     function($scope, Global, Settings) {
 
+        $scope.newItem = {
+            key: '',
+            value: {
+                value: ''
+            }
+        };
+
         $scope.init = function() {
             Settings.get(function(data) {
                 if (data.success) {
-                    $scope.settings = JSON.flatten(data.settings);
+                    $scope.settings = data.settings;
                 } else {
                     alert('error');
                 }
@@ -13,63 +20,17 @@ angular.module('mean.mean-admin').controller('SettingsController', ['$scope', 'G
         };
 
         $scope.update = function(settings) {
-            settings = JSON.unflatten(settings);
+            settings = JSON.clean(JSON.unflatten(settings));
             Settings.update(settings, function(data) {
-                $scope.settings = JSON.flatten(data);
+                console.log(data);
             });
         };
 
         $scope.getTextToCopy = function() {
-            return 'hello';
+            var settings = JSON.clean(JSON.unflatten($scope.settings));
+            return JSON.stringify(settings);
         };
 
-        JSON.flatten = function(data) {
-            var result = {};
-            flatten(data, '');
-
-            function flatten(config, root) {
-                for (var index in config) {
-                    if (config[index] && !config[index].value && typeof(config[index]) === 'object') flatten(config[index], layerRoot(root, index));
-                    else
-                        result[layerRoot(root, index)] = {
-                            'value': (config[index] && config[index].value) ? config[index].value : 'value',
-                            'default': (config[index] && config[index]['default']) ? config[index]['default'] : 'default',
-                            'hardCoded': (config[index] && config[index].hardCoded) ? config[index].hardCoded : false
-                        };
-                }
-            }
-
-            function layerRoot(root, layer) {
-                return (root ? root + '.' : root) + layer;
-            }
-            return result;
-        };
-        // JSON.flatten = function(data) {
-        //     var result = {};
-
-        //     function recurse(cur, prop) {
-        //         console.log(prop);
-        //         if (Object(cur) !== cur) {
-        //             result[prop] = cur;
-        //         } else if (Array.isArray(cur)) {
-        //             for (var i = 0, l = cur.length; i < l; i++)
-        //                 recurse(cur[i], prop + "[" + i + "]");
-        //             if (l == 0)
-        //                 result[prop] = [];
-        //         } else {
-        //             var isEmpty = true;
-        //             for (var p in cur) {
-        //                 isEmpty = false;
-        //                 recurse(cur[p], prop ? prop + '.' + p : p);
-        //             }
-        //             if (isEmpty && prop)
-        //                 result[prop] = {};
-        //         }
-        //     }
-        //     recurse(data, '');
-        //     console.log(result);
-        //     return result;
-        // };
 
         JSON.unflatten = function(data) {
             if (Object(data) !== data || Array.isArray(data))
@@ -87,6 +48,51 @@ angular.module('mean.mean-admin').controller('SettingsController', ['$scope', 'G
                 cur[prop] = data[p];
             }
             return resultholder[''] || resultholder;
+        };
+
+        JSON.clean = function(data, options) {
+            var result = {};
+            clean(data, '');
+
+            function clean(config, root) {
+                for (var index in config) {
+                    if (config[index] && !config[index].value && typeof(config[index]) === 'object') {
+                        clean(config[index], index);
+                    } else {
+                        if (root && !result[root]) {
+                            result[root] = {};
+                            result[root][index] = config[index].value;
+                        } else if (root && result[root])
+                            result[root][index] = config[index].value;
+
+                        else {
+                            result[index] = config[index].value;
+                        }
+                    }
+                }
+            }
+            return result;
+        };
+
+        $scope.add = function(newItem) {
+            $scope.settings[newItem.key] = newItem.value;
+            $scope.update($scope.settings);
+            $scope.newItem = {
+                key: '',
+                value: {
+                    value: ''
+                }
+            };
+        };
+
+        $scope.remove = function(key) {
+            delete $scope.settings[key];
+            $scope.update($scope.settings);
+        };
+
+        $scope.setDefault = function(key) {
+            $scope.settings[key].value = $scope.settings[key]['default'];
+            $scope.update($scope.settings);
         };
     }
 ]);
