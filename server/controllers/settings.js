@@ -7,7 +7,7 @@ exports.get = function(req, res) {
 };
 
 exports.save = function(req, res) {
-    mean.config.update(req.body, function(err, set) {
-        res.send(set);
+    mean.config.update(req.body, function(err, settings) {
+        res.send(settings);
     });
 };
