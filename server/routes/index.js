@@ -38,7 +38,7 @@ module.exports = function(Admin, app, auth, database) {
     app.put('/admin/settings', auth.requiresAdmin, settings.save);
     app.get('/admin/moduleSettings', auth.requiresAdmin, function(req, res) {
         Admin.settings(function(err, settings) {
-            res.jsonp(settings.settings);
+            res.jsonp(settings);
         });
     });
 };

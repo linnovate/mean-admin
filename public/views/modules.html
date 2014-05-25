@@ -7,15 +7,13 @@
             <accordion close-others="oneAtATime">
                 <accordion-group heading="settings" is-open="isOpen">
                     <div data-ng-repeat="(key, value) in info.settings">
-                        <!--  <span class="glyphicon glyphicon-trash" data-ng-click="remove(module, key)" value="del">
-                            <i class="icon-trash icon-white"></i>
-                        </span> -->
-                        <!--     <span class="editable-span" data-ng-editable="update()" data-ng-editable-model="key"></span>:
-                        <span class="editable-span" data-ng-editable="update()" data-ng-editable-model="value"></span> -->
-                        <span>{{key}} : </span>
-                        <setting data-ng-set-type="value.type" data-ng-set-options="value.options" data-ng-set-value="value.value"></setting>
+                        <form action="" class="form-horizontal" role="form" data-ng-if="value.options.editable">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">{{key}} :</label>
+                                <widget class="col-sm-10" widget-type="{{value.widget}}" setting-info="value" change-value="update(module, value.value)"></widget>
+                            </div>
+                        </form>
                     </div>
-                    <button data-ng-click="info.settings['new']='new'">Add</button>
                 </accordion-group>
             </accordion>
         </accordion-group>

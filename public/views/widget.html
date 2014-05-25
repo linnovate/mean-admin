@@ -1,0 +1,13 @@
+<span>
+    <input data-ng-if="(widget == 'input' && info.type != 'textarea')" type="{{info.type}}" data-ng-model="info.value" />
+    <textarea data-ng-if="(widget == 'input' && info.type == 'textarea')" name="" id="" cols="info.options.cols" rows="info.options.rows" data-ng-model="info.value"></textarea>
+    <select data-ng-if="(widget == 'select' && info.options.multiple == true)" data-ng-model="info.value" multiple data-ng-options="value.label for (key, value) in info.options.values"></select>
+    <select data-ng-if="(widget == 'select' && info.options.multiple == false)" data-ng-model="info.value" data-ng-options="value.label for (key, value) in info.options.values"></select>
+    <div data-ng-if="widget == 'toggle'" class="btn-group">
+        <label class="btn btn-success btn-xs" data-ng-model="info.value" btn-radio="true">{{info.options.values.true}}</label>
+        <label class="btn btn-success btn-xs" data-ng-model="info.value" btn-radio="false">{{info.options.values.false}}</label>
+    </div>
+    <div data-ng-if="widget == 'slider' && info.options.multiple == true" range-slider min="info.options.range.min" max="info.options.range.max" model-min="info.value.min" model-max="info.value.max" attach-handle-values="true"></div>
+    <div data-ng-if="widget == 'slider' && info.options.multiple == false" range-slider min="info.options.range.min" max="info.options.range.max" model-max="info.value.max" pin-handle="min"></div>
+  <!--   <div data-ng-if="widget == 'slider'" min="info.options.range.min" max="info.options.range.max" model-min="info.options.range.min" pin-handle="min"></div> -->
+</span>

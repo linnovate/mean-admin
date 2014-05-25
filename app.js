@@ -28,17 +28,15 @@ Admin.register(function(app, auth, database) {
         absolute: true
     });
 
-    Admin.angularDependencies(['ngClipboard']);
-
-    Admin.settings({
-        salta: {
-            type: 'checkbox',
-            options: {
-                title: 'ninja - salta '
-            },
-            value: false
-        }
+    Admin.aggregateAsset('css', '/node_modules/mean-admin/public/assets/lib/angular-rangeslider/angular.rangeSlider.css', {
+        absolute: true
     });
+
+    Admin.aggregateAsset('js', '/node_modules/mean-admin/public/assets/lib/angular-rangeslider/angular.rangeSlider.js', {
+        absolute: true
+    });
+
+    Admin.angularDependencies(['ngClipboard', 'ui-rangeSlider']);
 
     // We enable routing. By default the Package Object is passed to the routes
     Admin.routes(app, auth, database);
