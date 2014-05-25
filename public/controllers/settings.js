@@ -13,17 +13,14 @@ angular.module('mean.mean-admin').controller('SettingsController', ['$scope', 'G
             Settings.get(function(data) {
                 if (data.success) {
                     $scope.settings = data.settings;
-                } else {
-                    alert('error');
+                    console.log(data);
                 }
             });
         };
 
         $scope.update = function(settings) {
             settings = JSON.clean(JSON.unflatten(settings));
-            Settings.update(settings, function(data) {
-                console.log(data);
-            });
+            Settings.update(settings, function(data) {});
         };
 
         $scope.getTextToCopy = function() {

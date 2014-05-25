@@ -3,7 +3,7 @@
 var mean = require('meanio');
 
 exports.get = function(req, res) {
-    res.jsonp(mean.config.verbose().flat.diff);
+    res.jsonp(mean.config.flat.diff);
 };
 
 exports.save = function(req, res) {
