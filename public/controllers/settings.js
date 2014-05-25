@@ -13,7 +13,6 @@ angular.module('mean.mean-admin').controller('SettingsController', ['$scope', 'G
             Settings.get(function(data) {
                 if (data.success) {
                     $scope.settings = data.settings;
-                    console.log(data);
                 }
             });
         };
