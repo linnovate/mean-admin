@@ -31,6 +31,6 @@ In order to deploy `mean-admin` to Heroku or otherwise, add the following line t
 
 _Note: the `mean-admin` pubilshed on npm does not work with meanio. The line above will pull the module directly from GitHub._
 
-Don't forget to add the `admin` role to the admin user. Make sure `server/config/eng/production.js` is updated with the production db url, then use the `--env` flag as:
+Don't forget to add the `admin` role to the admin user. Make sure `server/config/env/production.js` is updated with the production db url, then use the `--env` flag as:
 
     $ mean user <email> -a admin --env production
