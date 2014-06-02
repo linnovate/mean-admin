@@ -6,14 +6,18 @@
     "name": "Linnovate",
     "email": "mean@linnovate.net"
   },
-  "mean": true,
+  "mean": "0.3.3",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/linnovate/mean-admin.git"
+  },
   "engines": {
     "node": "0.10.x",
     "npm": "1.4.x"
   },
   "dependencies": {
-    "gridfs-stream": "0.4.1",
-    "request": "2.34.0"
+    "gridfs-stream": "^0.5.1",
+    "request": "^2.36.0"
   },
   "license": "MIT",
   "_id": "mean-admin@0.0.3",
