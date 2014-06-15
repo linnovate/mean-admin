@@ -57,12 +57,12 @@ angular.module('mean.mean-admin').controller('SettingsController', ['$scope', 'G
                     } else {
                         if (root && !result[root]) {
                             result[root] = {};
-                            result[root][index] = config[index].value;
+                            result[root][index] = config[index] ? config[index].value : null;
                         } else if (root && result[root])
-                            result[root][index] = config[index].value;
+                            result[root][index] = config[index] ? config[index].value : null;
 
                         else {
-                            result[index] = config[index].value;
+                            result[index] = config[index] ? config[index].value : null;
                         }
                     }
                 }

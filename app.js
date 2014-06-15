@@ -12,7 +12,7 @@ var Admin = new Module('mean-admin');
  */
 
 Admin.register(function(app, auth, database) {
-
+console.log("aaa")
     Admin.aggregateAsset('css', 'admin.css');
     Admin.aggregateAsset('css', 'themes.css');
     Admin.aggregateAsset('js', 'users.js');
