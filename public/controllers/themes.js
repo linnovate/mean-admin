@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mean').controller('ThemesController', ['$scope', 'Global', '$rootScope', '$http',
+angular.module('mean.mean-admin').controller('ThemesController', ['$scope', 'Global', '$rootScope', '$http',
     function($scope, Global, $rootScope, $http) {
         $scope.global = Global;
         $scope.themes = [];

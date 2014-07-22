@@ -1,5 +1,5 @@
 'use strict';
-angular.module('mean').config(['$stateProvider', '$urlRouterProvider',
+angular.module('mean.mean-admin').config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('users', {
@@ -15,5 +15,9 @@ angular.module('mean').config(['$stateProvider', '$urlRouterProvider',
                 url: '/admin/modules',
                 templateUrl: 'mean-admin/views/modules.html'
             });
+    }
+]).config(['ngClipProvider',
+    function(ngClipProvider) {
+        ngClipProvider.setPath('../mean-admin/assets/lib/zeroclipboard/ZeroClipboard.swf');
     }
 ]);

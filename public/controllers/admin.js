@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mean').controller('AdminController', ['$scope', 'Global', 'Menus', '$rootScope',
+angular.module('mean.mean-admin').controller('AdminController', ['$scope', 'Global', 'Menus', '$rootScope',
     function($scope, Global, Menus, $rootScope) {
         $scope.global = Global;
         $scope.menus = {};
@@ -52,7 +52,7 @@ angular.module('mean').controller('AdminController', ['$scope', 'Global', 'Menus
             queryMenu('admin', defaultAdminMenu);
 
             $scope.global = {
-                authenticated: !!$rootScope.user,
+                authenticated: !! $rootScope.user,
                 user: $rootScope.user
             };
         });
