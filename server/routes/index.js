@@ -13,6 +13,12 @@ module.exports = function(Admin, app, auth, database) {
     app.put('/admin/users/:userId', auth.requiresAdmin, users.update);
     app.delete('/admin/users/:userId', auth.requiresAdmin, users.destroy);
 
+    //Setting up the user roles api
+    var roles = require('../controllers/roles');
+    app.get('/admin/users/roles', auth.requiresAdmin, roles.getRoles);
+    app.post('/admin/users/roles', auth.requiresAdmin, roles.addRoles);
+    app.delete('/admin/users/roles/:roleId', auth.requiresAdmin, roles.destroy);
+
     //Setting up the users api
     var themes = require('../controllers/themes');
     app.get('/admin/themes', auth.requiresAdmin, function(req, res) {

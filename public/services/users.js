@@ -10,3 +10,13 @@ angular.module('mean.mean-admin').factory("Users", ['$resource',
         });
     }
 ]);
+
+angular.module('mean.mean-admin').factory("Roles", ['$resource',
+    function($resource) {
+        return $resource('/admin/users/roles/:roleId', {
+            update: {
+                method: 'PUT'
+            }
+        });
+    }
+]);
