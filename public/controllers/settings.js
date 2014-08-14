@@ -18,7 +18,7 @@ angular.module('mean.mean-admin').controller('SettingsController', ['$scope', 'G
         };
 
         $scope.update = function(settings) {
-            settings = JSON.clean(JSON.unflatten(settings));
+            settings = JSON.unflatten(settings);
             Settings.update(settings, function(data) {});
         };
 
@@ -27,24 +27,33 @@ angular.module('mean.mean-admin').controller('SettingsController', ['$scope', 'G
             return JSON.stringify(settings);
         };
 
+        var reconstruct = function(obj, key, value) {
+            var objs = key.split(".");
+            var len = objs.length;
+            var last;
+            objs.shift();
+            last = obj;
+            for (var k in objs) {
+                if (Number(k) === len - 2) {
+                    last[objs[k]] = value;
+                    break;
+                }
+                if (last[objs[k]] === undefined) {
+                    last[objs[k]] = {};
+                }
+                last = last[objs[k]];
+            }
+        }
 
         JSON.unflatten = function(data) {
-            if (Object(data) !== data || Array.isArray(data))
-                return data;
-            var regex = /\.?([^.\[\]]+)|\[(\d+)\]/g,
-                resultholder = {};
-            for (var p in data) {
-                var cur = resultholder,
-                    prop = '',
-                    m;
-                while (m = regex.exec(p)) {
-                    cur = cur[prop] || (cur[prop] = (m[2] ? [] : {}));
-                    prop = m[2] || m[1];
+            var settings = {};
+            for (var i in data) {
+                if (data.hasOwnProperty(i)) {
+                    reconstruct(settings, "settings."+i , data[i].value);
                 }
-                cur[prop] = data[p];
             }
-            return resultholder[''] || resultholder;
-        };
+            return settings;
+        }
 
         JSON.clean = function(data, options) {
             var result = {};
