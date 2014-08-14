@@ -1,6 +1,6 @@
 {
   "name": "mean-admin",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Admin module for MEAN applications",
   "author": {
     "name": "Linnovate",
@@ -15,12 +15,13 @@
     "node": "0.10.x",
     "npm": "1.4.x"
   },
-  "scripts": {    
-    "postinstall": "bower install"
+  "scripts": {   
+    "postinstall": "mean postinstall"
   },
   "dependencies": {
     "gridfs-stream": "^0.5.1",
-    "request": "^2.36.0"
+    "request": "^2.36.0",
+    "mean-health": "~0.1.2"
   },
   "license": "MIT",
   "_id": "mean-admin@0.0.3",
