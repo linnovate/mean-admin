@@ -81,7 +81,7 @@ span.editable-wrapper input {
 }
 .content {
     margin-left: 70px;
-    width: 92%;
+    max-width: 92%;
 }
 .container {
     width: 100%;
