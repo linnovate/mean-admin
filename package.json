@@ -16,7 +16,7 @@
     "npm": "1.4.x"
   },
   "scripts": {   
-    "postinstall": "mean postinstall"
+    "postinstall": "bower install"
   },
   "dependencies": {
     "gridfs-stream": "^0.5.1",
