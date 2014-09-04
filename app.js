@@ -20,12 +20,12 @@ Admin.register(function(app, auth, database) {
     Admin.aggregateAsset('js', 'ng-clip.js');
     Admin.aggregateAsset('js', 'settings.js');
     Admin.aggregateAsset('js', '../lib/ng-clip/src/ngClip.js', {
-        absolute: true,
+        absolute: false,
         global: true
     });
 
     Admin.aggregateAsset('js', '../lib/zeroclipboard/dist/ZeroClipboard.min.js', {
-        absolute: true,
+        absolute: false,
         global: true
     });
 
