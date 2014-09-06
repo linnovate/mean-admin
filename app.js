@@ -19,13 +19,13 @@ Admin.register(function(app, auth, database) {
     Admin.aggregateAsset('js', 'modules.js');
     Admin.aggregateAsset('js', 'ng-clip.js');
     Admin.aggregateAsset('js', 'settings.js');
-    Admin.aggregateAsset('js', '/node_modules/mean-admin/public/assets/lib/ng-clip/src/ngClip.js', {
-        absolute: true,
+    Admin.aggregateAsset('js', '../lib/ng-clip/src/ngClip.js', {
+        absolute: false,
         global: true
     });
 
-    Admin.aggregateAsset('js', '/node_modules/mean-admin/public/assets/lib/zeroclipboard/dist/ZeroClipboard.min.js', {
-        absolute: true,
+    Admin.aggregateAsset('js', '../lib/zeroclipboard/dist/ZeroClipboard.min.js', {
+        absolute: false,
         global: true
     });
 
