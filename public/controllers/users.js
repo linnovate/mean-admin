@@ -1,8 +1,9 @@
 'use strict';
 
-angular.module('mean.mean-admin').controller('UsersController', ['$scope', 'Global', 'Menus', '$rootScope', '$http', 'Users',
-    function($scope, Global, Menus, $rootScope, $http, Users) {
+angular.module('mean.mean-admin').controller('UsersController', ['$scope', 'Global', 'Menus', '$rootScope', '$http', 'Users', 'Roles',
+    function($scope, Global, Menus, $rootScope, $http, Users, Roles) {
         $scope.global = Global;
+        $scope.roles = [];
         $scope.userSchema = [{
             title: 'Email',
             schemaKey: 'email',
@@ -22,7 +23,7 @@ angular.module('mean.mean-admin').controller('UsersController', ['$scope', 'Glob
             title: 'Roles',
             schemaKey: 'roles',
             type: 'select',
-            options: ['authenticated', 'admin'],
+            options: $scope.roles,
             inTable: true
         }, {
             title: 'Password',
@@ -36,10 +37,33 @@ angular.module('mean.mean-admin').controller('UsersController', ['$scope', 'Glob
             inTable: false
         }];
         $scope.user = {};
+        $scope.rolesObj = {};
 
         $scope.init = function() {
             Users.query({}, function(users) {
                 $scope.users = users;
+            });
+
+            Roles.query({}, function(roles) {
+                $scope.rolesObj = roles;
+
+                // We need at least 'admin' and 'authenticated'
+                if (roles.length === 0) {
+                    Roles.save({role: 'admin'}, function(res) {
+                        $scope.rolesObj.push(res);
+                        $scope.roles.push(res.role);
+                    });
+                    Roles.save({role: 'authenticated'}, function(res) {
+                        $scope.rolesObj.push(res);
+                        $scope.roles.push(res.role);
+                    });
+                } else {
+                    for (var i in $scope.rolesObj) {
+                        if ($scope.rolesObj[i].role !== undefined) {
+                            $scope.roles.push(roles[i].role);
+                        }
+                    }
+                }
             });
         };
 
@@ -87,6 +111,44 @@ angular.module('mean.mean-admin').controller('UsersController', ['$scope', 'Glob
             if (userField === 'roles') {
                 user.tmpRoles = user.roles;
             }
+        };
+
+        $scope.addingRole = false;
+
+        $scope.addRole = function() {
+            $scope.addingRole = true;
+        };
+
+        $scope.doneAddRole = function() {
+            $scope.addingRole = false;
+            $scope.roles.push($scope.newRole);
+            Roles.save({role: $scope.newRole}, function(res) {
+                $scope.rolesObj.push(res);
+            });
+            $scope.newRole = "";
+        };
+
+        $scope.editRole = function() {
+            $scope.editingRole = true;
+        };
+
+        $scope.doneEditRole = function() {
+            $scope.editingRole = false;
+        };
+
+        $scope.removeRole = function(role) {
+            for (var i in $scope.roles) {
+                if ($scope.roles[i] === role.role) {
+                    $scope.roles.splice(i, 1);
+                }
+            }
+
+            for (var i in $scope.rolesObj) {
+                if ($scope.rolesObj[i] === role) {
+                    $scope.rolesObj.splice(i, 1);
+                }
+            }
+            Roles.delete({roleId: role._id}, function(res){});
         };
     }
 ]);

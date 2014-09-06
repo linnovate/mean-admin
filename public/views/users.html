@@ -35,4 +35,33 @@
             </td>
         </tr>
     </table>
+    <input type="button" class="btn btn-danger" data-ng-click="editRole()" value="Edit" data-ng-hide="editingRole">
+    <input type="button" class="btn btn-danger" data-ng-click="doneEditRole()" value="Done" data-ng-show="editingRole">
+    <table class="table table-striped">
+        <tr>
+            <th data-ng-show="editingRole">
+                Delete
+            </th>
+            <th>
+                Role
+            </th>
+        </tr>
+        <tr data-ng-repeat="role in rolesObj">
+            <td data-ng-show="editingRole">
+                <button class="glyphicon glyphicon-trash" data-ng-click="removeRole(role)" value="del">
+                    <i class="icon-trash icon-white"></i>
+                </button>
+            </td>
+            <td>
+                <span>{{role.role}}</span>
+            </td>
+        </tr>
+        <tr data-ng-show="addingRole">
+            <td>
+                <input type="text" placeholder="Input a new role name" data-ng-model="newRole"/>
+            </td>
+        </tr>
+    </table>
+    <input type="button" class="btn btn-danger" data-ng-click="addRole()" value="Add a role" data-ng-hide="addingRole">
+    <input type="button" class="btn btn-danger" data-ng-click="doneAddRole()" value="Done" data-ng-show="addingRole">
 </section>
