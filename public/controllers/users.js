@@ -55,11 +55,14 @@ angular.module('mean.mean-admin').controller('UsersController', ['$scope', 'Glob
                 roles: $scope.user.roles
             });
 
-            user.$save(function(response) {
+            user.$save(function(user, response){                
                 $scope.users.push(response);
+                this.user.email = this.user.name = this.user.username = this.user.password = this.user.confirmPassword = this.role = '';
+            }, function (errors){                
+                errors.data.forEach(function(error){
+                    alert(error.msg);
+                });                
             });
-
-            this.firstName = this.lastName = this.email = this.password = this.role = '';
         };
 
         $scope.remove = function(user) {
