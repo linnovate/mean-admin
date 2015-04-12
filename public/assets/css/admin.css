@@ -79,3 +79,10 @@ tr.disabled {
 span.editable-wrapper input {
     width: 80%;
 }
+.content {
+    margin-left: 70px;
+    max-width: 92%;
+}
+.container {
+    width: 100%;
+}
