@@ -52,7 +52,7 @@ angular.module('mean.mean-admin').controller('SettingsController', ['$scope', 'G
 
             function clean(config, root) {
                 for (var index in config) {
-                    if (config[index] && !config[index].value && typeof(config[index]) === 'object') {
+                    if (config[index] && config[index].value === undefined && typeof(config[index]) === 'object') {
                         clean(config[index], index);
                     } else {
                         if (root && !result[root]) {
