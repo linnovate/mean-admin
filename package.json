@@ -19,7 +19,6 @@
     "postinstall": "mean postinstall"
   },
   "dependencies": {
-    "gridfs-stream": "^0.5.1",
     "request": "^2.36.0",
     "mean-health": "~0.1.2"
   },
