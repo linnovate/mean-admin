@@ -16,7 +16,7 @@
     "npm": "1.4.x"
   },
   "scripts": {   
-    "postinstall": "mean postinstall"
+    
   },
   "dependencies": {
     "request": "^2.36.0",
